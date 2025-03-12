@@ -1,0 +1,23 @@
+# ウェブアプリケーション
+streamlit==1.22.0
+
+# データ処理
+pandas==1.5.3
+numpy==1.24.3
+
+# データ可視化
+matplotlib==3.7.1
+plotly==5.14.1
+
+# ファイル処理
+fitparse==1.2.0  # FITファイル解析
+
+# API連携
+requests==2.29.0
+
+# テスト
+pytest==7.3.1
+
+# 開発ツール
+black==23.3.0
+flake8==6.0.0

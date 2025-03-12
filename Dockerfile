@@ -17,6 +17,10 @@ COPY . .
 # データディレクトリの作成
 RUN mkdir -p /app/data
 
+# 起動スクリプトの作成
+RUN echo '#!/bin/bash\npython -m src.models.database\nexec streamlit run src/app.py' > /app/start.sh && \
+    chmod +x /app/start.sh
+
 # Streamlitのポート公開
 EXPOSE 8501
 
