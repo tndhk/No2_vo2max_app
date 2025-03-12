@@ -23,5 +23,10 @@ EXPOSE 8501
 # 環境変数の設定
 ENV PYTHONPATH=/app
 
-# データベース初期化とアプリケーション起動（スクリプトを使わず直接実行）
-CMD bash -c "cd /app && python -m src.models.database && PYTHONPATH=/app streamlit run src/app.py"
+# コマンドを直接実行
+CMD bash -c "echo '=== データベース初期化を実行中...' && \
+             python -m src.models.database && \
+             echo '=== データベーススキーマの更新を実行中...' && \
+             python -m src.models.update_db && \
+             echo '=== Streamlitアプリケーションを起動中...' && \
+             streamlit run src/app.py"

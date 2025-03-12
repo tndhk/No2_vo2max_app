@@ -19,7 +19,7 @@ def init_db():
     conn = get_db_connection()
     cur = conn.cursor()
     
-    # ワークアウトテーブル - 追加フィールド含む
+    # ワークアウトテーブル - Strava IDフィールド追加
     cur.execute('''
     CREATE TABLE IF NOT EXISTS workouts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,6 +35,7 @@ def init_db():
         ftp INTEGER,           -- 追加: トレーニング時のFTP値
         max_hr INTEGER,        -- 追加: 最大心拍数（設定値）
         work_kj REAL,          -- 追加: 総仕事量（キロジュール）
+        strava_id INTEGER,     -- 追加: Strava アクティビティID
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
     ''')

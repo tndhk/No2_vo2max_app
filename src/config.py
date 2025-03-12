@@ -12,8 +12,8 @@ ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
 DATABASE_PATH = os.environ.get("DATABASE_PATH", os.path.join(DATA_DIR, "vo2max.db"))
 
 # Strava API設定
-STRAVA_CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID", "")
-STRAVA_CLIENT_SECRET = os.environ.get("STRAVA_CLIENT_SECRET", "")
+STRAVA_CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID", "151925")
+STRAVA_CLIENT_SECRET = os.environ.get("STRAVA_CLIENT_SECRET", "bd2540510d6e409e35daa1e39302f358e3df7ef6")
 
 # 環境別設定
 if ENVIRONMENT == "development":
