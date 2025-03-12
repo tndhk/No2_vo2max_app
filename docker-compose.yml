@@ -11,6 +11,7 @@ services:
     environment:
       - DATABASE_PATH=/app/data/vo2max.db
       - ENVIRONMENT=development
+      - PYTHONPATH=/app
 
 volumes:
   sqlite_data:

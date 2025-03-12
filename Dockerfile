@@ -17,12 +17,11 @@ COPY . .
 # データディレクトリの作成
 RUN mkdir -p /app/data
 
-# 起動スクリプトの作成
-RUN echo '#!/bin/bash\npython -m src.models.database\nexec streamlit run src/app.py' > /app/start.sh && \
-    chmod +x /app/start.sh
-
 # Streamlitのポート公開
 EXPOSE 8501
 
-# アプリケーション起動
-CMD ["streamlit", "run", "src/app.py"]
+# 環境変数の設定
+ENV PYTHONPATH=/app
+
+# データベース初期化とアプリケーション起動（スクリプトを使わず直接実行）
+CMD bash -c "cd /app && python -m src.models.database && PYTHONPATH=/app streamlit run src/app.py"
