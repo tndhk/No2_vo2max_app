@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - sqlite_data:/app/data
+    environment:
+      - DATABASE_PATH=/app/data/vo2max.db
+      - ENVIRONMENT=development
+
+volumes:
+  sqlite_data:
